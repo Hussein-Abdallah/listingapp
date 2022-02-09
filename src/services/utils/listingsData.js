@@ -1,0 +1,101 @@
+export default [
+  {
+    id: 201,
+    title: 'Red jacket',
+    images: require('assets/images/jacket.jpg'),
+    price: 10000,
+    categoryId: 5,
+    userId: 1,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 3,
+    title: 'Gray couch in a great condition',
+    images: require('assets/images/couch.jpg'),
+    categoryId: 1,
+    price: 120000,
+    userId: 2,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 1,
+    title: 'Room & Board couch (great condition) - delivery included',
+    description:
+      "I'm selling my furniture at a discount price. Pick up at Venice. DM me asap.",
+    images: require('assets/images/couch2.jpeg'),
+    price: 100000,
+    categoryId: 1,
+    userId: 1,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 2,
+    title: 'Designer wear shoes',
+    images: require('assets/images/shoes.jpeg'),
+    categoryId: 5,
+    price: 10000,
+    userId: 2,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 102,
+    title: 'Canon 400D (Great Condition)',
+    images: require('assets/images/camera.jpg'),
+    price: 30000,
+    categoryId: 3,
+    userId: 1,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 101,
+    title: 'Nikon D850 for sale',
+    images: require('assets/images/nikon.jpeg'),
+    price: 35000,
+    categoryId: 3,
+    userId: 1,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 4,
+    title: 'Sectional couch - Delivery available',
+    description: 'No rips no stains no odors',
+    images: require('assets/images/sectional.jpg'),
+    categoryId: 1,
+    price: 95000,
+    userId: 2,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+  {
+    id: 6,
+    title: 'Brown leather shoes',
+    images: require('assets/images/leather.jpeg'),
+    categoryId: 5,
+    price: 5000,
+    userId: 2,
+    location: {
+      latitude: 37.78825,
+      longitude: -122.4324,
+    },
+  },
+];
