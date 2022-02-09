@@ -11,17 +11,11 @@ const styles = StyleSheet.create({
     height: '100%',
   },
   closeIcon: {
-    backgroundColor: colors.primary,
-    height: 50,
-    width: 50,
     position: 'absolute',
     top: 40,
     left: 30,
   },
   deleteIcon: {
-    backgroundColor: colors.secondary,
-    height: 50,
-    width: 50,
     position: 'absolute',
     top: 40,
     right: 30,
