@@ -1,5 +1,6 @@
 import IconComponent from 'components/general/IconComponent';
 import Screen from 'components/general/Screen';
+import Separator from 'components/general/Separator';
 import { ListItem } from 'components/lists';
 import React from 'react';
 import { FlatList, View } from 'react-native';
@@ -49,6 +50,7 @@ function Account(props) {
               }
             />
           )}
+          ItemSeparatorComponent={Separator}
         />
       </View>
       <View style={styles.container}>
