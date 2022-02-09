@@ -4,7 +4,9 @@ import styles from './styles';
 
 function Screen({ children, style }) {
   return (
-    <SafeAreaView style={[styles.container, style]}>{children}</SafeAreaView>
+    <SafeAreaView style={[styles.screen, style]}>
+      <View style={[styles.container, style]}>{children}</View>
+    </SafeAreaView>
   );
 }
 
