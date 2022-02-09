@@ -31,6 +31,22 @@ const initialMessages = [
 
 function Messages(props) {
   const [messages, setMessages] = useState(initialMessages);
+  const [refreshing, setRefreshing] = useState(false);
+
+  const handeRefresh = () => {
+    setRefreshing(true);
+    setMessages([
+      ...messages,
+      {
+        id: 4,
+        title: 'T4',
+        description: 'D4',
+        image: require('assets/images/mosh.jpg'),
+      },
+    ]);
+    setRefreshing(false);
+  };
+
   const handleDelete = (message) => {
     setMessages((prevState) => {
       return prevState.filter((item) => item.id !== message.id);
@@ -47,12 +63,16 @@ function Messages(props) {
             subTitle={item.description}
             image={item.image}
             onPress={() => console.log('Message Pressed', item)}
+            // handle swipeable action
             renderRightActions={() => (
               <DeleteAction onPress={() => handleDelete(item)} />
             )}
           />
         )}
         ItemSeparatorComponent={Separator}
+        // handle pull to refresh
+        refreshing={refreshing}
+        onRefresh={handeRefresh}
       />
     </Screen>
   );
