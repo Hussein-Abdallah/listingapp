@@ -1,0 +1,12 @@
+{
+  "exclude": ["node_modules", "**/node_modules", "dist"],
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      // Shorten path: [Location]
+      "components/*": ["src/components/*"],
+      "styles/*": ["src/styles/*"],
+      "assets/*": ["src/assets/*"]
+    }
+  }
+}
