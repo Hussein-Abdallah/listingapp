@@ -1,5 +1,5 @@
 import React from 'react';
-import { Text, TouchableOpacity } from 'react-native';
+import { Pressable, Text, TouchableOpacity } from 'react-native';
 import colors from 'styles/generalStyles/colors';
 import styles from './styles';
 
@@ -10,15 +10,18 @@ function AppButton({
   backgroundColor = 'primary',
 }) {
   return (
-    <TouchableOpacity
-      style={[
+    <Pressable
+      style={({ pressed }) => [
         styles.buttonContainer,
-        { backgroundColor: colors[backgroundColor] },
+        {
+          backgroundColor: colors[backgroundColor],
+          opacity: pressed ? 0.6 : 1,
+        },
       ]}
       onPress={onPress}
     >
       <Text style={[styles.buttonText, { color: colors[color] }]}>{title}</Text>
-    </TouchableOpacity>
+    </Pressable>
   );
 }
 
