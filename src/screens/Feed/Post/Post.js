@@ -1,7 +1,9 @@
-import AppText from 'components/general/AppText';
-import ListItem from 'components/lists/ListItem';
 import React from 'react';
-import { Image, SafeAreaView, View } from 'react-native';
+import { Image, View } from 'react-native';
+
+import AppText from 'components/general/AppText';
+import { ListItem } from 'components/lists';
+
 import styles from './styles';
 
 function Post(props) {
