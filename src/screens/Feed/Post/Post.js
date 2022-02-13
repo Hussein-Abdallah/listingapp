@@ -8,6 +8,8 @@ import Screen from 'components/general/Screen';
 
 import styles from './styles';
 import FormPicker from 'components/form/FormPicker';
+import categoriesData from 'services/utils/categoriesData';
+import CategoryPickerItem from 'components/general/Picker/CategoryPickerItem';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -15,11 +17,7 @@ const validationSchema = Yup.object().shape({
   category: Yup.object().nullable().required().label('Category'),
   description: Yup.string().optional().label('Description'),
 });
-const categories = [
-  { id: 1, label: 'Furniture' },
-  { id: 2, label: 'Clothing' },
-  { id: 3, label: 'Camera' },
-];
+
 function Post(props) {
   return (
     <Screen style={styles.container}>
@@ -49,7 +47,13 @@ function Post(props) {
           autoCapitalize='sentences'
           keyboardType='numeric'
         />
-        <FormPicker name='category' placeholder='Category' data={categories} />
+        <FormPicker
+          name='category'
+          placeholder='Category'
+          data={categoriesData}
+          numberOfColumns={3}
+          PickerItemComponent={CategoryPickerItem}
+        />
         <FormField
           name='description'
           placeholder='Description'

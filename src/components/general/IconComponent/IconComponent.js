@@ -7,8 +7,8 @@ import colors from 'styles/generalStyles/colors';
 function IconComponent({
   name,
   size = 40,
-  color = 'white',
-  backgroundColor = 'black',
+  color = colors.white,
+  backgroundColor = colors.black,
 }) {
   return (
     <View
@@ -18,15 +18,11 @@ function IconComponent({
           width: size,
           height: size,
           borderRadius: size / 2,
-          backgroundColor: colors[backgroundColor],
+          backgroundColor,
         },
       ]}
     >
-      <MaterialCommunityIcons
-        name={name}
-        size={size * 0.5}
-        color={colors[color]}
-      />
+      <MaterialCommunityIcons name={name} size={size * 0.5} color={color} />
     </View>
   );
 }

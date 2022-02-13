@@ -11,6 +11,8 @@ function PickerComponent({
   icon,
   placeholder,
   data,
+  PickerItemComponent = PickerItem,
+  numberOfColumns = 1,
   onSelectItem,
   selectedItem,
   ...otherProps
@@ -60,9 +62,10 @@ function PickerComponent({
           <FlatList
             data={data}
             keyExtractor={(item) => item.id.toString()}
+            numColumns={numberOfColumns}
             renderItem={({ item }) => (
-              <PickerItem
-                label={item.label}
+              <PickerItemComponent
+                item={item}
                 onPress={() => handleSelection(item)}
               />
             )}
