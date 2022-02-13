@@ -9,8 +9,18 @@ function AppCard({ title, subTitle = '', image, price }) {
     <View style={styles.cardContainer}>
       <Image source={image} style={styles.cardImage} />
       <View style={styles.cardHeader}>
-        <AppText style={styles.cardTitle}>{title}</AppText>
-        <AppText style={styles.cardSubTitle}>
+        <AppText
+          numberOfLines={1}
+          ellipsizeMode='tail'
+          style={styles.cardTitle}
+        >
+          {title}
+        </AppText>
+        <AppText
+          numberOfLines={1}
+          ellipsizeMode='tail'
+          style={styles.cardSubTitle}
+        >
           {price ? formatPrice(price) : subTitle}
         </AppText>
       </View>
