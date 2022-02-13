@@ -15,6 +15,7 @@ function ListItem({
   subTitle,
   onPress,
   renderRightActions,
+  showChevrons,
 }) {
   return (
     <GestureHandlerRootView>
@@ -29,6 +30,13 @@ function ListItem({
                 <AppText style={styles.subTitle}>{subTitle}</AppText>
               )}
             </View>
+            {showChevrons && (
+              <MaterialCommunityIcons
+                name='chevron-right'
+                color={colors.mediumGray}
+                size={24}
+              />
+            )}
           </View>
         </TouchableHighlight>
       </Swipeable>

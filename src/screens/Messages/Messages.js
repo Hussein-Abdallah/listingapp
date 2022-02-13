@@ -67,6 +67,7 @@ function Messages(props) {
             renderRightActions={() => (
               <DeleteAction onPress={() => handleDelete(item)} />
             )}
+            showChevrons={true}
           />
         )}
         ItemSeparatorComponent={Separator}
