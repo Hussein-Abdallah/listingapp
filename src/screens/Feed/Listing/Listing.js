@@ -6,7 +6,7 @@ import { ListItem } from 'components/lists';
 
 import styles from './styles';
 
-function Post(props) {
+function Listing(props) {
   return (
     <View style={styles.container}>
       <Image
@@ -28,4 +28,4 @@ function Post(props) {
   );
 }
 
-export default Post;
+export default Listing;

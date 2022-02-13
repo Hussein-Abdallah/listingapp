@@ -1,3 +1,3 @@
-import Picker from './Picker';
+import PickerComponent from './PickerComponent';
 
-export default Picker;
+export default PickerComponent;

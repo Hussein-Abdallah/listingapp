@@ -13,6 +13,11 @@ const styles = StyleSheet.create({
   },
   text: {
     flex: 1,
+    color: colors.darkGray,
+  },
+  placeholder: {
+    flex: 1,
+    color: colors.mediumGray,
   },
   icon: {
     marginRight: 10,

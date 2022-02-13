@@ -7,7 +7,7 @@ import Screen from 'components/general/Screen';
 import PickerItem from '../PickerItem';
 import AppText from 'components/general/AppText';
 
-function Picker({
+function PickerComponent({
   icon,
   placeholder,
   data,
@@ -32,9 +32,13 @@ function Picker({
               style={styles.icon}
             />
           )}
-          <AppText style={styles.text} {...otherProps}>
-            {selectedItem ? selectedItem.label : placeholder}
-          </AppText>
+          {selectedItem ? (
+            <AppText style={styles.text} {...otherProps}>
+              {selectedItem.label}
+            </AppText>
+          ) : (
+            <AppText style={styles.placeholder}>{placeholder}</AppText>
+          )}
           <MaterialCommunityIcons
             name='chevron-down'
             size={20}
@@ -59,7 +63,7 @@ function Picker({
             renderItem={({ item }) => (
               <PickerItem
                 label={item.label}
-                onPress={(item) => handleSelection(item)}
+                onPress={() => handleSelection(item)}
               />
             )}
           />
@@ -69,4 +73,4 @@ function Picker({
   );
 }
 
-export default Picker;
+export default PickerComponent;
