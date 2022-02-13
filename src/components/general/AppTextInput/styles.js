@@ -11,6 +11,9 @@ const styles = StyleSheet.create({
     borderRadius: 25,
     alignItems: 'center',
   },
+  textInput: {
+    width: '100%',
+  },
   icon: {
     color: colors.mediumGray,
     marginRight: 10,
