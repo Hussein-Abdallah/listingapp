@@ -5,12 +5,14 @@ import AppForm from 'components/form/AppForm';
 import FormField from 'components/form/FormField';
 import SubmitButton from 'components/form/SubmitButton';
 import Screen from 'components/general/Screen';
-
-import styles from './styles';
 import FormPicker from 'components/form/FormPicker';
-import categoriesData from 'services/utils/categoriesData';
 import CategoryPickerItem from 'components/general/Picker/CategoryPickerItem';
 import FormImagePicker from 'components/form/FormImagePicker';
+
+import useLocation from 'src/hooks/useLocation';
+import categoriesData from 'services/utils/categoriesData';
+
+import styles from './styles';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -21,6 +23,7 @@ const validationSchema = Yup.object().shape({
 });
 
 function Post(props) {
+  const location = useLocation();
   return (
     <Screen style={styles.container}>
       <AppForm
@@ -31,7 +34,7 @@ function Post(props) {
           description: '',
           images: [],
         }}
-        onSubmit={(values) => console.log(values)}
+        onSubmit={(values) => console.log(location)}
         validationSchema={validationSchema}
       >
         <FormImagePicker name='images' />
