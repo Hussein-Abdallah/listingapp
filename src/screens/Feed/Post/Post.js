@@ -10,12 +10,14 @@ import styles from './styles';
 import FormPicker from 'components/form/FormPicker';
 import categoriesData from 'services/utils/categoriesData';
 import CategoryPickerItem from 'components/general/Picker/CategoryPickerItem';
+import FormImagePicker from 'components/form/FormImagePicker';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
   price: Yup.number().required().min(1).max(10000).label('Price'),
   category: Yup.object().nullable().required().label('Category'),
   description: Yup.string().optional().label('Description'),
+  images: Yup.array().min(1, 'Please select at least one image.'),
 });
 
 function Post(props) {
@@ -27,10 +29,12 @@ function Post(props) {
           price: '',
           category: null,
           description: '',
+          images: [],
         }}
-        onSubmit={(values) => console.log(value)}
+        onSubmit={(values) => console.log(values)}
         validationSchema={validationSchema}
       >
+        <FormImagePicker name='images' />
         <FormField
           name='title'
           maxLength={255}
