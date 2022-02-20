@@ -5,17 +5,18 @@ import AppText from 'components/general/AppText';
 import { ListItem } from 'components/lists';
 
 import styles from './styles';
+import formatPrice from 'services/utils/formatPrice';
 
-function Listing(props) {
+function Listing({ route }) {
+  const { images, title, price, description } = route.params;
+  console.log(route.params);
   return (
     <View style={styles.container}>
-      <Image
-        source={require('assets/images/jacket.jpg')}
-        style={styles.image}
-      />
+      <Image source={images} style={styles.image} />
       <View style={styles.header}>
-        <AppText style={styles.title}>Jacket for sale</AppText>
-        <AppText style={styles.price}>{formatPrice(1000)}</AppText>
+        <AppText style={styles.title}>{title}</AppText>
+        <AppText style={styles.price}>{formatPrice(price)}</AppText>
+        <AppText>{description}</AppText>
         <View style={styles.userContainer}>
           <ListItem
             image={require('assets/images/mosh.jpg')}

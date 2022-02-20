@@ -1,6 +1,12 @@
 import React from 'react';
-import Post from 'src/screens/Feed/Post';
+import { NavigationContainer } from '@react-navigation/native';
+import navigationTheme from 'styles/navigationStyles/navigationTheme';
+import AppNavigator from 'src/navigation/AppNavigator';
 
 export default function App() {
-  return <Post />;
+  return (
+    <NavigationContainer theme={navigationTheme}>
+      <AppNavigator />
+    </NavigationContainer>
+  );
 }

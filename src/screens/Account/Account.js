@@ -4,6 +4,7 @@ import Separator from 'components/general/Separator';
 import { ListItem } from 'components/lists';
 import React from 'react';
 import { FlatList, View } from 'react-native';
+import colors from 'styles/generalStyles/colors';
 import styles from './styles';
 
 const menuItems = [
@@ -12,19 +13,21 @@ const menuItems = [
     title: 'My Listings',
     icon: {
       name: 'format-list-bulleted',
-      backgroundColor: 'primary',
+      backgroundColor: colors.primary,
     },
+    targetScreen: 'Listings',
   },
   {
     id: 2,
     title: 'My Messages',
     icon: {
       name: 'email',
-      backgroundColor: 'secondary',
+      backgroundColor: colors.secondary,
     },
+    targetScreen: 'Messages',
   },
 ];
-function Account(props) {
+function Account({ navigation }) {
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
@@ -48,6 +51,7 @@ function Account(props) {
                   backgroundColor={item.icon.backgroundColor}
                 />
               }
+              onPress={() => navigation.navigate(item.targetScreen)}
             />
           )}
           ItemSeparatorComponent={Separator}
@@ -60,7 +64,7 @@ function Account(props) {
             <IconComponent
               name='logout'
               color='white'
-              backgroundColor='warning'
+              backgroundColor={colors.warning}
             />
           }
         />
