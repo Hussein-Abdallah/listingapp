@@ -1,14 +1,27 @@
 import React from 'react';
-import { Image, Pressable, View } from 'react-native';
+import { Pressable, View } from 'react-native';
+import { Image } from 'react-native-expo-image-cache';
 import formatPrice from 'services/utils/formatPrice';
 import AppText from '../AppText';
 import styles from './styles';
 
-function AppCard({ title, subTitle = '', imageUrl, price, onPress }) {
+function AppCard({
+  title,
+  subTitle = '',
+  imageUrl,
+  price,
+  onPress,
+  thumbnailUrl,
+}) {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.cardContainer}>
-        <Image source={{ uri: imageUrl }} style={styles.cardImage} />
+        <Image
+          uri={imageUrl}
+          preview={{ uri: thumbnailUrl }}
+          style={styles.cardImage}
+          tint='light'
+        />
         <View style={styles.cardHeader}>
           <AppText
             numberOfLines={1}
@@ -22,7 +35,7 @@ function AppCard({ title, subTitle = '', imageUrl, price, onPress }) {
             ellipsizeMode='tail'
             style={styles.cardSubTitle}
           >
-            {price ? formatPrice(price) : subTitle}
+            {price ? price : subTitle}
           </AppText>
         </View>
       </View>
