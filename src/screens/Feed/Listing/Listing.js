@@ -9,10 +9,9 @@ import formatPrice from 'services/utils/formatPrice';
 
 function Listing({ route }) {
   const { images, title, price, description } = route.params;
-  console.log(route.params);
   return (
     <View style={styles.container}>
-      <Image source={images} style={styles.image} />
+      <Image source={{ uri: images[0].url }} style={styles.image} />
       <View style={styles.header}>
         <AppText style={styles.title}>{title}</AppText>
         <AppText style={styles.price}>{formatPrice(price)}</AppText>

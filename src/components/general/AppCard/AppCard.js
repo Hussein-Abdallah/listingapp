@@ -4,11 +4,11 @@ import formatPrice from 'services/utils/formatPrice';
 import AppText from '../AppText';
 import styles from './styles';
 
-function AppCard({ title, subTitle = '', image, price, onPress }) {
+function AppCard({ title, subTitle = '', imageUrl, price, onPress }) {
   return (
     <Pressable onPress={onPress}>
       <View style={styles.cardContainer}>
-        <Image source={image} style={styles.cardImage} />
+        <Image source={{ uri: imageUrl }} style={styles.cardImage} />
         <View style={styles.cardHeader}>
           <AppText
             numberOfLines={1}

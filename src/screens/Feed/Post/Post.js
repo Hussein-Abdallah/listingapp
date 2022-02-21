@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import * as Yup from 'yup';
 
 import AppForm from 'components/form/AppForm';
@@ -11,8 +11,9 @@ import FormImagePicker from 'components/form/FormImagePicker';
 
 import useLocation from 'src/hooks/useLocation';
 import categoriesData from 'services/utils/categoriesData';
-
+import listingsApi from 'src/services/listings/listings';
 import styles from './styles';
+import UploadScreen from 'components/general/UploadScreen';
 
 const validationSchema = Yup.object().shape({
   title: Yup.string().required().min(1).label('Title'),
@@ -23,9 +24,32 @@ const validationSchema = Yup.object().shape({
 });
 
 function Post(props) {
+  const [uploadVisible, setUploadVisible] = useState(false);
+  const [progress, setProgress] = useState(0);
   const location = useLocation();
+
+  const handleSubmit = async (listing, { resetForm }) => {
+    setProgress(0);
+    setUploadVisible(true);
+    const result = await listingsApi.addListing(
+      { ...listing, location },
+      (progress) => setProgress(progress)
+    );
+    setUploadVisible(false);
+
+    if (!result.ok) {
+      setUploadVisible(false);
+      return alert('Could not save the listing.');
+    }
+    resetForm();
+  };
   return (
     <Screen style={styles.container}>
+      <UploadScreen
+        visible={uploadVisible}
+        progress={progress}
+        onDone={() => setUploadVisible(false)}
+      />
       <AppForm
         initialValues={{
           title: '',
@@ -34,7 +58,7 @@ function Post(props) {
           description: '',
           images: [],
         }}
-        onSubmit={(values) => console.log(location)}
+        onSubmit={handleSubmit}
         validationSchema={validationSchema}
       >
         <FormImagePicker name='images' />
