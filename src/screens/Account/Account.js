@@ -2,8 +2,11 @@ import IconComponent from 'components/general/IconComponent';
 import Screen from 'components/general/Screen';
 import Separator from 'components/general/Separator';
 import { ListItem } from 'components/lists';
-import React from 'react';
+import React, { useContext } from 'react';
 import { FlatList, View } from 'react-native';
+import AuthContext from 'services/auth/context';
+import authStorage from 'services/auth/storage';
+import useAuth from 'services/auth/useAuth';
 import colors from 'styles/generalStyles/colors';
 import styles from './styles';
 
@@ -28,12 +31,14 @@ const menuItems = [
   },
 ];
 function Account({ navigation }) {
+  const { user, logout } = useAuth();
+
   return (
     <Screen style={styles.screen}>
       <View style={styles.container}>
         <ListItem
-          title='Mosh Hamedani'
-          subTitle='programmingwithmosh@gmail.com'
+          title={user.name}
+          subTitle={user.email}
           image={require('assets/images/mosh.jpg')}
         />
       </View>
@@ -52,6 +57,7 @@ function Account({ navigation }) {
                 />
               }
               onPress={() => navigation.navigate(item.targetScreen)}
+              showChevrons
             />
           )}
           ItemSeparatorComponent={Separator}
@@ -67,6 +73,7 @@ function Account({ navigation }) {
               backgroundColor={colors.warning}
             />
           }
+          onPress={() => logout()}
         />
       </View>
     </Screen>
